@@ -1,5 +1,5 @@
-// TODO: consomme useNoteStore → affiche notes[]
-// TODO: props: aucune (lit le store directement)
+// TODO: reads notes[] from useNoteStore
+// TODO: renders one item per note
 
 export default function NoteList() {
   return null;

@@ -1,6 +1,26 @@
-// TODO: fetchTags() → GET /api/v1/tags
-// TODO: createTag(payload) → POST /api/v1/tags
+import { tagApi } from '../api/tagApi';
+import type { TagPayload } from '../types/api';
+import type { Tag } from '../types/entities';
 
-const tagsService = {};
+/* ITAGS SERVICE INTERFACE */
+interface ITagsService {
+  fetchTags(): Promise<Tag[] | null>;
+  createTag(data: TagPayload): Promise<Tag | null>;
+}
 
-export default tagsService;
+/* TAGS SERVICE */
+class TagsService implements ITagsService {
+  /* FETCH TAGS */
+  async fetchTags() {
+    const res = await tagApi.fetchAll();
+    return res.data.data;
+  }
+
+  /* CREATE TAG */
+  async createTag(data: TagPayload) {
+    const res = await tagApi.create(data);
+    return res.data.data;
+  }
+}
+
+export const tagsService = new TagsService();

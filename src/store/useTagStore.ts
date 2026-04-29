@@ -1,10 +1,10 @@
 import { create } from 'zustand';
 
-// TODO: state: { tags: [] }
-// TODO: actions: fetchTags(), addTag(payload)
+// TODO: state — tags[]
+// TODO: actions — fetchTags(), addTag(payload)
 
 const useTagStore = create(() => ({
-    tags: [],
+  tags: [],
 }));
 
 export default useTagStore;

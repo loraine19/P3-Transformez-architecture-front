@@ -1,5 +1,5 @@
-// TODO: formulaire email + password
-// TODO: submit → authStore.login() → redirect /dashboard si succès
+// TODO: form — email + password
+// TODO: submit → authStore.login() → redirect to /dashboard
 
 export default function LoginPage() {
   return null;

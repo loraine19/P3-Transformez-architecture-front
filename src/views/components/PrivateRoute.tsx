@@ -1,6 +1,6 @@
-// TODO: lire token depuis useAuthStore
-// TODO: si pas de token → <Navigate to="/login" replace />
-// TODO: sinon → rendre <Outlet />
+// TODO: read token from useAuthStore
+// TODO: no token → <Navigate to="/login" replace />
+// TODO: token → render <Outlet />
 
 export default function PrivateRoute() {
   return null;

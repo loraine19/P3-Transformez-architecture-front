@@ -1,4 +1,4 @@
-// TODO: formulaire création tag (name)
+// TODO: form — name
 // TODO: submit → useTagStore.addTag()
 
 export default function TagForm() {

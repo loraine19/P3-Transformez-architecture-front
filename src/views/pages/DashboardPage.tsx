@@ -1,6 +1,6 @@
-// TODO: page principale (notes + tags)
-// TODO: consomme useNoteStore + useTagStore
-// TODO: affiche NoteList + NoteForm + TagForm
+// TODO: main view — notes + tags
+// TODO: reads useNoteStore + useTagStore
+// TODO: renders NoteList + NoteForm + TagForm
 
 export default function DashboardPage() {
   return null;

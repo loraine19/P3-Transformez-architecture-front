@@ -1,12 +1,12 @@
 import { create } from 'zustand';
 
-// TODO: state: { user: null, token: null }
-// TODO: actions: login(email, password), logout()
-// TODO: persister le token (localStorage ou sessionStorage)
+// TODO: state — user, token
+// TODO: actions — login(email, password), logout()
+// TODO: persist token in localStorage
 
 const useAuthStore = create(() => ({
-    user: null,
-    token: null,
+  user: null,
+  token: null,
 }));
 
 export default useAuthStore;
