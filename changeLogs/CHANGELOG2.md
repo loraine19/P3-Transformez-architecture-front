@@ -1,8 +1,8 @@
-# CHANGELOG 2 — API layer + Services
+# CHANGELOG 2 — API layer + Services + Stores
 
-**Date :** 2026-04-29  
+**Date :** 2026-04-29 / 2026-05-01  
 **Branche :** feature/api-client  
-**Scope :** Bloc 2 — apiClient, tokenStorage, Api classes, Services
+**Scope :** Bloc 2 — apiClient, tokenStorage, Api classes, Services | Bloc 3 — Stores Zustand
 
 ---
 
@@ -61,9 +61,33 @@ Pattern uniforme dans chaque fichier : `interface I[X] + class [X] implements I[
 
 ---
 
+## Bloc 3 — Stores Zustand
+
+Pattern uniforme : `interface I[X]State + interface I[X]Actions + create<IState & IActions>`
+
+| Fichier                     | State           | Actions                                     |
+| --------------------------- | --------------- | ------------------------------------------- |
+| `src/store/useAuthStore.ts` | `user`, `token` | `login()`, `register()`, `logout()`         |
+| `src/store/useNoteStore.ts` | `notes[]`       | `fetchNotes()`, `addNote()`, `removeNote()` |
+| `src/store/useTagStore.ts`  | `tags[]`        | `fetchTags()`, `addTag()`                   |
+
+### Décisions d'architecture
+
+- `token` réhydraté depuis `tokenStorage.get()` au démarrage (persistance page reload)
+- Actions délèguent aux services — zéro appel API direct dans le store
+- `removeNote()` filtre optimistiquement côté client après confirmation serveur
+- `addNote()` / `addTag()` — guard `if (result)` avant mutation du state
+
+### Build vérifié
+
+```
+✓ 0 erreur TypeScript strict
+```
+
+---
+
 ## Ce qui reste à faire (prochains blocs)
 
-- Bloc 3 : Stores Zustand (`useAuthStore`, `useNoteStore`, `useTagStore`)
-- Bloc 4 : Routes + `PrivateRoute`
+- Bloc 4 : Routes + `PrivateRoute` + `App.tsx` câblé — branche `feature/front-components`
 - Bloc 5 : Pages (`LoginPage`, `RegisterPage`, `DashboardPage`)
 - Bloc 6 : Composants (`NoteList`, `NoteForm`, `TagForm`)
