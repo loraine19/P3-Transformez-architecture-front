@@ -4,20 +4,20 @@ import type { Tag } from '../types/entities';
 
 /* ITAGS SERVICE INTERFACE */
 interface ITagsService {
-  fetchTags(): Promise<Tag[] | null>;
+  fetchTags(): Promise<Tag[]>;
   createTag(data: TagPayload): Promise<Tag | null>;
 }
 
 /* TAGS SERVICE */
 class TagsService implements ITagsService {
   /* FETCH TAGS */
-  async fetchTags() {
+  async fetchTags(): Promise<Tag[]> {
     const res = await tagApi.fetchAll();
-    return res.data.data;
+    return res.data.data ?? [];
   }
 
   /* CREATE TAG */
-  async createTag(data: TagPayload) {
+  async createTag(data: TagPayload): Promise<Tag | null> {
     const res = await tagApi.create(data);
     return res.data.data;
   }
