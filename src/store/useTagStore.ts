@@ -1,10 +1,26 @@
 import { create } from 'zustand';
+import type { Tag } from '../types/entities';
 
-// TODO: state: { tags: [] }
-// TODO: actions: fetchTags(), addTag(payload)
+/* ITAG STATE */
+interface ITagState {
+  tags: Tag[];
+}
 
-const useTagStore = create(() => ({
-    tags: [],
+/* ITAG ACTIONS */
+interface ITagActions {
+  setTags(tags: Tag[]): void;
+  addTag(tag: Tag): void;
+}
+
+/* TAG STORE */
+const useTagStore = create<ITagState & ITagActions>((set) => ({
+  tags: [],
+
+  /* SET TAGS */
+  setTags: (tags) => set({ tags }),
+
+  /* ADD TAG */
+  addTag: (tag) => set((s) => ({ tags: [...s.tags, tag] })),
 }));
 
 export default useTagStore;
