@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { tokenStorage } from './tokenStorage';
+import { tokenStorage } from '../utils/tokenStorage';
 
 // axios instance configured with base URL from env
 const apiClient = axios.create({

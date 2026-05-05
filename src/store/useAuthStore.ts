@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { tokenStorage } from '../api/tokenStorage';
+import { tokenStorage } from '../utils/tokenStorage';
 import type { User } from '../types/entities';
 
 /* IAUTH STATE */

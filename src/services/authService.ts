@@ -1,5 +1,5 @@
 import { authApi } from '../api/authApi';
-import { tokenStorage } from '../api/tokenStorage';
+import { tokenStorage } from '../utils/tokenStorage';
 import type { LoginPayload, RegisterPayload, AuthData } from '../types/api';
 
 /* IAUTH SERVICE INTERFACE */
