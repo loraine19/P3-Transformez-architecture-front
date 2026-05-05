@@ -16,7 +16,7 @@ function NoteItem({ note, onDelete }: { note: Note; onDelete(id: number): Promis
     <div className="flex items-start justify-between border-b border-neutral-100 py-3 last:border-0 dark:border-neutral-800">
       <div>
         <p className="text-sm text-zinc-900 dark:text-white">{note.text}</p>
-        <small className="text-zinc-500">Tag : {tag?.name ?? '—'}</small>
+        <small className="text-zinc-500">Tag : {tag?.name ?? ' -'}</small>
       </div>
       <button onClick={() => onDelete(note.id)} className="btn-danger">Supprimer</button>
     </div>

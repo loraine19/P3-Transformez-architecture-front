@@ -6,7 +6,7 @@ interface ITokenStorage {
 }
 
 /* TOKEN STORAGE */
-// localStorage implementation — swap class to switch to cookies
+// localStorage implementation  - swap class to switch to cookies
 class TokenStorage implements ITokenStorage {
   private readonly key = 'token';
 

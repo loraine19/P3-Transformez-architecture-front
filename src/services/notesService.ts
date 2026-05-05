@@ -14,6 +14,7 @@ class NotesService implements INotesService {
   /* FETCH NOTES */
   async fetchNotes(): Promise<Note[]> {
     const res = await noteApi.fetchAll();
+    // TODO: improve  - res.data.data double unwrap 
     return res.data.data ?? [];
   }
 

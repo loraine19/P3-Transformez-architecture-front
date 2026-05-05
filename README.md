@@ -1,4 +1,4 @@
-# P3 — Front-end React (Renote SPA)
+# P3 - Front-end React (Renote SPA)
 
 Application front-end découplée du back-end Laravel. SPA React consommant l'API REST via Bearer Token (Sanctum).
 
@@ -23,7 +23,7 @@ Application front-end découplée du back-end Laravel. SPA React consommant l'AP
 ```
 src/
 ├── api/
-│   ├── tokenStorage.ts   ← ITokenStorage — abstraction localStorage
+│   ├── tokenStorage.ts   ← ITokenStorage  - abstraction localStorage
 │   ├── apiClient.ts      ← Axios configuré (baseURL, Bearer, interceptors 401)
 │   ├── authApi.ts        ← IAuthApi + AuthApi (login / register / logout)
 │   ├── noteApi.ts        ← INoteApi + NoteApi (fetchAll / create / remove)
@@ -64,10 +64,10 @@ UI Event → Page (orchestration) → Service (appel API) → Api layer (Axios +
 ```
 
 - **Pages** : orchestrent les composants, appellent les services, mettent à jour les stores
-- **Composants** : UI pure — reçoivent des props, aucun appel API, aucune mutation de store
-- **Stores** : état pur — setters uniquement, jamais d'appel réseau
+- **Composants** : UI pure - reçoivent des props, aucun appel API, aucune mutation de store
+- **Stores** : état pur - setters uniquement, jamais d'appel réseau
 - **Services** : font les appels API et retournent les données typées
-- **Api layer** : Axios centralisé — un seul endroit pour configurer `Authorization: Bearer`
+- **Api layer** : Axios centralisé - un seul endroit pour configurer `Authorization: Bearer`
 
 ---
 

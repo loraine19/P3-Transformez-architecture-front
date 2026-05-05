@@ -13,6 +13,7 @@ class TagsService implements ITagsService {
   /* FETCH TAGS */
   async fetchTags(): Promise<Tag[]> {
     const res = await tagApi.fetchAll();
+    // TODO: improve  - res.data.data double unwrap 
     return res.data.data ?? [];
   }
 

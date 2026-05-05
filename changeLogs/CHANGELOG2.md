@@ -1,8 +1,8 @@
-# CHANGELOG 2 — API layer + Services + Stores
+# CHANGELOG 2 - API layer + Services + Stores
 
 **Date :** 2026-04-29 / 2026-05-01  
 **Branche :** feature/api-client  
-**Scope :** Bloc 2 — apiClient, tokenStorage, Api classes, Services | Bloc 3 — Stores Zustand
+**Scope :** Bloc 2 - apiClient, tokenStorage, Api classes, Services | Bloc 3 - Stores Zustand
 
 ---
 
@@ -11,14 +11,14 @@
 ### Migration TypeScript
 
 - Tous les fichiers `.js` renommés en `.ts` / `.tsx`
-- `tsconfig.json` / `tsconfig.app.json` / `tsconfig.node.json` — strict mode activé
-- `src/vite-env.d.ts` — typage `import.meta.env.VITE_API_URL`
+- `tsconfig.json` / `tsconfig.app.json` / `tsconfig.node.json` - strict mode activé
+- `src/vite-env.d.ts` - typage `import.meta.env.VITE_API_URL`
 - `.env` + `.env.example` créés
 
 ### Types définis
 
-- `src/types/entities.ts` — `User`, `Tag`, `Note` (miroir des modèles Laravel)
-- `src/types/api.ts` — `ApiResponse<T>`, `LoginPayload`, `RegisterPayload`, `NotePayload`, `TagPayload`, `AuthData`
+- `src/types/entities.ts` - `User`, `Tag`, `Note` (miroir des modèles Laravel)
+- `src/types/api.ts` - `ApiResponse<T>`, `LoginPayload`, `RegisterPayload`, `NotePayload`, `TagPayload`, `AuthData`
 
 ### Architecture couche API
 
@@ -28,21 +28,21 @@ Pattern uniforme dans chaque fichier : `interface I[X] + class [X] implements I[
 | ------------------------- | --------------------------------------------------- |
 | `src/api/tokenStorage.ts` | `ITokenStorage` + `TokenStorage` (localStorage)     |
 | `src/api/apiClient.ts`    | Instance Axios + interceptors (Bearer + 401)        |
-| `src/api/authApi.ts`      | `IAuthApi` + `AuthApi` — login / register / logout  |
-| `src/api/noteApi.ts`      | `INoteApi` + `NoteApi` — fetchAll / create / remove |
-| `src/api/tagApi.ts`       | `ITagApi` + `TagApi` — fetchAll / create            |
+| `src/api/authApi.ts`      | `IAuthApi` + `AuthApi` - login / register / logout  |
+| `src/api/noteApi.ts`      | `INoteApi` + `NoteApi` - fetchAll / create / remove |
+| `src/api/tagApi.ts`       | `ITagApi` + `TagApi` - fetchAll / create            |
 
 ### Décisions d'architecture
 
-- `apiClient` lit le token via `tokenStorage.get()` — pas d'import du store (évite la dépendance circulaire)
-- `tokenStorage` abstrait le type de stockage — swap `localStorage` → cookies en changeant une seule classe
-- Singletons exportés (`export const authApi = new AuthApi()`) — remplace un DI container de façon lean
+- `apiClient` lit le token via `tokenStorage.get()` - pas d'import du store (évite la dépendance circulaire)
+- `tokenStorage` abstrait le type de stockage - swap `localStorage` → cookies en changeant une seule classe
+- Singletons exportés (`export const authApi = new AuthApi()`) - remplace un DI container de façon lean
 
 ### Services
 
 | Fichier                        | Méthodes                                                       |
 | ------------------------------ | -------------------------------------------------------------- |
-| `src/services/authService.ts`  | `login()` — écrit token, `register()`, `logout()` — vide token |
+| `src/services/authService.ts`  | `login()` - écrit token, `register()`, `logout()` - vide token |
 | `src/services/notesService.ts` | `fetchNotes()`, `createNote()`, `deleteNote()`                 |
 | `src/services/tagsService.ts`  | `fetchTags()`, `createTag()`                                   |
 
@@ -56,12 +56,12 @@ Pattern uniforme dans chaque fichier : `interface I[X] + class [X] implements I[
 ### Build vérifié
 
 ```
-✓ built in 144ms — 0 erreur
+✓ built in 144ms  - 0 erreur
 ```
 
 ---
 
-## Bloc 3 — Stores Zustand
+## Bloc 3 - Stores Zustand
 
 Pattern uniforme : `interface I[X]State + interface I[X]Actions + create<IState & IActions>`
 
@@ -74,9 +74,9 @@ Pattern uniforme : `interface I[X]State + interface I[X]Actions + create<IState 
 ### Décisions d'architecture
 
 - `token` réhydraté depuis `tokenStorage.get()` au démarrage (persistance page reload)
-- Actions délèguent aux services — zéro appel API direct dans le store
+- Actions délèguent aux services - zéro appel API direct dans le store
 - `removeNote()` filtre optimistiquement côté client après confirmation serveur
-- `addNote()` / `addTag()` — guard `if (result)` avant mutation du state
+- `addNote()` / `addTag()` - guard `if (result)` avant mutation du state
 
 ### Build vérifié
 
@@ -88,6 +88,6 @@ Pattern uniforme : `interface I[X]State + interface I[X]Actions + create<IState 
 
 ## Ce qui reste à faire (prochains blocs)
 
-- Bloc 4 : Routes + `PrivateRoute` + `App.tsx` câblé — branche `feature/front-components`
+- Bloc 4 : Routes + `PrivateRoute` + `App.tsx` câblé - branche `feature/front-components`
 - Bloc 5 : Pages (`LoginPage`, `RegisterPage`, `DashboardPage`)
 - Bloc 6 : Composants (`NoteList`, `NoteForm`, `TagForm`)

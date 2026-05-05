@@ -1,8 +1,8 @@
-# CHANGELOG 1 — Setup initial
+# CHANGELOG 1 - Setup initial
 
 **Date :** 2026-04-29  
 **Branche :** main  
-**Scope :** Bloc 1 — Scaffolding + structure du projet
+**Scope :** Bloc 1 - Scaffolding + structure du projet
 
 ---
 
@@ -17,7 +17,7 @@
 
 | Package            | Version | Rôle                              |
 | ------------------ | ------- | --------------------------------- |
-| `react-router-dom` | ^6.30.1 | Routing (v6 — pinné manuellement) |
+| `react-router-dom` | ^6.30.1 | Routing (v6 - pinné manuellement) |
 | `zustand`          | ^5.0.12 | State management                  |
 | `axios`            | ^1.15.2 | Client HTTP                       |
 
@@ -37,21 +37,21 @@ P3_front/
 
 ### Fichiers configurés
 
-- `App.jsx` — shell RouterProvider (routes en TODO)
-- `index.css` — reset + variables de couleur reprises du backend Laravel (zinc/accent)
+- `App.jsx` - shell RouterProvider (routes en TODO)
+- `index.css` - reset + variables de couleur reprises du backend Laravel (zinc/accent)
 - Coquilles vides créées pour toutes les couches (api, services, store, views)
 
 ### Build vérifié
 
 ```
-✓ built in 188ms — 0 erreur
+✓ built in 188ms  - 0 erreur
 ```
 
 ---
 
 ## Ce qui reste à faire (prochains blocs)
 
-- Bloc 2 : `apiClient.js` — Axios configuré (baseURL, Bearer, interceptors)
+- Bloc 2 : `apiClient.js` - Axios configuré (baseURL, Bearer, interceptors)
 - Bloc 3 : Services (authService, notesService, tagsService)
 - Bloc 4 : Stores Zustand (useAuthStore, useNoteStore, useTagStore)
 - Bloc 5 : Routes + PrivateRoute

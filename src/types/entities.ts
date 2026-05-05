@@ -1,4 +1,4 @@
-// domain entities — mirrors Laravel models fields
+// domain entities  - mirrors Laravel models fields
 
 /* USER */
 export interface User {

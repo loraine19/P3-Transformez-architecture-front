@@ -15,6 +15,7 @@ class AuthService implements IAuthService {
   // stores token via tokenStorage after successful login
   async login(data: LoginPayload): Promise<AuthData | null> {
     const res = await authApi.login(data);
+    // TODO: improve  - res.data.data double unwrap 
     const authData: AuthData | null = res.data.data;
     if (authData?.token) tokenStorage.set(authData.token);
     return authData;
