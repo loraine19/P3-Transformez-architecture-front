@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 /* IREGISTER FORM PROPS */
 interface IRegisterFormProps {
-    onSubmit(name: string, email: string, password: string): Promise<void>;
+    onSubmit(name: string, email: string, password: string, password_confirmation: string): Promise<void>;
     error: string | null;
 }
 
@@ -12,11 +12,12 @@ export default function RegisterForm({ onSubmit, error }: IRegisterFormProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
     /* SUBMIT */
     async function handleSubmit(e: FormEvent) {
         e.preventDefault();
-        await onSubmit(name, email, password);
+        await onSubmit(name, email, password, passwordConfirmation);
     }
 
     return (
@@ -54,6 +55,10 @@ export default function RegisterForm({ onSubmit, error }: IRegisterFormProps) {
                     <div className="flex flex-col gap-1">
                         <label htmlFor="password" className="auth-label">Mot de passe</label>
                         <input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Mot de passe" className="auth-input" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="password_confirmation" className="auth-label">Confirmer le mot de passe</label>
+                        <input id="password_confirmation" type="password" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} required placeholder="Confirmer le mot de passe" className="auth-input" />
                     </div>
                     <button type="submit" className="auth-btn">S'inscrire</button>
                 </form>

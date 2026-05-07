@@ -20,8 +20,8 @@
 
 | Fichier                             | Responsabilité                                                                          |
 | ----------------------------------- | --------------------------------------------------------------------------------------- |
-| `src/views/pages/LoginPage.tsx`     | Appelle `authService.login()` → `setAuth()` → `navigate('/')`                           |
-| `src/views/pages/RegisterPage.tsx`  | Appelle `authService.register()` → `navigate('/login')`                                 |
+| `src/views/pages/LoginPage.tsx`     | Appelle `authService.login()` -> `setAuth()` -> `navigate('/')`                         |
+| `src/views/pages/RegisterPage.tsx`  | Appelle `authService.register()` -> `navigate('/login')`                                |
 | `src/views/pages/DashboardPage.tsx` | Init via `Promise.all([fetchNotes, fetchTags])` - orchestre NoteList, NoteForm, TagForm |
 
 ### Composants UI

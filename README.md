@@ -58,9 +58,9 @@ src/
 **Convention Clean Architecture :**
 
 ```
-UI Event → Page (orchestration) → Service (appel API) → Api layer (Axios + Bearer)
-                                                       → Page met à jour le store
-                                                                 → Re-render composants abonnés
+UI Event -> Page (orchestration) -> Service (appel API) -> Api layer (Axios + Bearer)
+                                                       -> Page met à jour le store
+                                                                 -> Re-render composants abonnés
 ```
 
 - **Pages** : orchestrent les composants, appellent les services, mettent à jour les stores
@@ -77,7 +77,7 @@ Le back-end Laravel doit tourner en local :
 
 ```bash
 # Dans le dossier back-end
-php artisan serve   # → http://localhost:8000
+php artisan serve   # -> http://localhost:8000
 ```
 
 Variables d'environnement attendues (`.env`) :
@@ -98,7 +98,7 @@ CORS_ALLOWED_ORIGINS=http://localhost:5173
 
 ```bash
 npm install
-npm run dev      # → http://localhost:5173
+npm run dev      # -> http://localhost:5173
 npm run build    # Build production (0 erreur TypeScript)
 ```
 
@@ -112,13 +112,13 @@ npm run build    # Build production (0 erreur TypeScript)
 
 ## Tests manuels validés
 
-| Scénario                              | Résultat |
-| ------------------------------------- | -------- |
-| Register → redirect login             | ✅       |
-| Login → dashboard                     | ✅       |
-| Dashboard charge notes + tags via API | ✅       |
-| Créer une note → ajout sans reload    | ✅       |
-| Supprimer une note → retrait immédiat | ✅       |
-| Créer un tag                          | ✅       |
-| Logout → redirect /login              | ✅       |
-| Accès / sans token → redirect login   | ✅       |
+| Scénario                               | Résultat |
+| -------------------------------------- | -------- |
+| Register -> redirect login             | ✅       |
+| Login -> dashboard                     | ✅       |
+| Dashboard charge notes + tags via API  | ✅       |
+| Créer une note -> ajout sans reload    | ✅       |
+| Supprimer une note -> retrait immédiat | ✅       |
+| Créer un tag                           | ✅       |
+| Logout -> redirect /login              | ✅       |
+| Accès / sans token -> redirect login   | ✅       |

@@ -1,5 +1,6 @@
 import type { User } from './entities';
 
+/* API RESPONSE */
 // generic wrapper  - all API responses follow { status, message, data }
 export interface ApiResponse<T> {
     status: 'success' | 'error';
@@ -7,6 +8,15 @@ export interface ApiResponse<T> {
     data: T | null;
 }
 
+/* DTO RESPONSE */
+// auth response  - { user: { id, name, email }, token }
+export interface AuthData {
+    user: User;
+    token: string;
+}
+
+
+/* DTO REQUESTS */
 // payloads sent to the API
 export interface LoginPayload {
     email: string;
@@ -29,8 +39,3 @@ export interface TagPayload {
     name: string;
 }
 
-// auth response shape  - { user: { id, name, email }, token }
-export interface AuthData {
-    user: User;
-    token: string;
-}

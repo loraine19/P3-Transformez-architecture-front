@@ -9,10 +9,10 @@ export default function RegisterPage() {
   const [error, setError] = useState<string | null>(null);
 
   /* SUBMIT */
-  async function handleSubmit(name: string, email: string, password: string) {
+  async function handleSubmit(name: string, email: string, password: string, password_confirmation: string) {
     setError(null);
     try {
-      await authService.register({ name, email, password });
+      await authService.register({ name, email, password, password_confirmation });
       navigate('/login');
     } catch {
       setError("Erreur lors de l'inscription.");

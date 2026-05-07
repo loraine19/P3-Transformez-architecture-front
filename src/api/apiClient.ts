@@ -16,7 +16,7 @@ apiClient.interceptors.request.use((config) => {
 });
 
 /* RESPONSE INTERCEPTOR */
-// 401 → clear token and redirect to login
+// 401 -> clear token and redirect to login / can be use later for refresh token logic
 apiClient.interceptors.response.use(
   (response) => response,
   (error: unknown) => {

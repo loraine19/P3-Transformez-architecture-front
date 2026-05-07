@@ -35,7 +35,7 @@ Pattern uniforme dans chaque fichier : `interface I[X] + class [X] implements I[
 ### Décisions d'architecture
 
 - `apiClient` lit le token via `tokenStorage.get()` - pas d'import du store (évite la dépendance circulaire)
-- `tokenStorage` abstrait le type de stockage - swap `localStorage` → cookies en changeant une seule classe
+- `tokenStorage` abstrait le type de stockage - swap `localStorage` -> cookies en changeant une seule classe
 - Singletons exportés (`export const authApi = new AuthApi()`) - remplace un DI container de façon lean
 
 ### Services
